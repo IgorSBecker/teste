@@ -26,11 +26,13 @@ export default {
 };
 
 function getSSLValues() {
+  console.log("conectou");
   if (process.env.POSTGRES_CA) {
+    console.log("tem ca");
     return {
       ca: process.env.POSTGRES_CA,
     };
   }
-
+  console.log(process.env.NODE_ENV);
   return process.env.NODE_ENV === "development" ? false : true;
 }
